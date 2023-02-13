@@ -40,33 +40,39 @@ int main() {
         if (press == 1) {
             std::string title, description;
             std::cout << "Enter the title of the Show: ";
-            std::cin >> title;
+            std::cin.ignore();
+            std::getline(std::cin, title);
             std::cout << "Enter the description: ";
-            std::cin >> description;
+            std::getline(std::cin, description);
             Show show(title, description);
             PlayShow(show);
         }
         else if (press == 2) {
             std::string title, description, credits;
             std::cout << "Enter the title of the Movie: ";
-            std::cin >> title;
+            std::cin.ignore();
+            std::getline(std::cin, title);
             std::cout << "Enter the description: ";
-            std::cin >> description;
+            std::getline(std::cin, description);
             std::cout << "Enter the credits: ";
-            std::cin >> credits;
+            std::getline(std::cin, credits);
             Movie movie(title, description, credits);
             PlayMovie(movie);
         }
 
         else if (press == 3) {
-            std::string title;
+            std::string title, s, e;
             int season, episode;
             std::cout << "Enter the title of the TV Show: ";
-            std::cin >> title;
+            std::cin.ignore();
+            std::getline(std::cin, title);
             std::cout << "Enter the season number: ";
-            std::cin >> season;
+            std::cin >> s;
             std::cout << "Enter the episode number: ";
-            std::cin >> episode;
+            std::cin >> e;
+
+            season = stoi(s);
+            episode = stoi(e);
 
             TV tvShow(title, season, episode);
             PlayTV(tvShow, title, season, episode);
@@ -74,25 +80,30 @@ int main() {
         else if (press == 4) {
             std::string title, description, credits;
             std::cout << "Enter the title: ";
-            std::cin >> title;
+            std::cin.ignore();
+            std::getline(std::cin, title);
             std::cout << "Enter the description: ";
-            std::cin >> description;
+            std::getline(std::cin, description);
             std::cout << "Enter the credits: ";
-            std::cin >> credits;
+            std::getline(std::cin, credits);
 
-            Movie movie(title, description, credits);
-            Show& show = movie;
-            PlayMovie(movie);
+            Show* movie = new Movie;
+            movie->setTitle(title);
+            movie->setDescription(description);
+            PlayShow(*movie);
         }
         else if (press == 5) {
             std::string title, description;
             std::cout << "Enter the title: ";
-            std::cin >> title;
+            std::cin.ignore();
+            std::getline(std::cin, title);
             std::cout << "Enter the description: ";
-            std::cin >> description;
-            Show tvshow(title, description);
-            Show& show = tvshow;
-            PlayShow(tvshow);
+            std::getline(std::cin, description);
+            
+            Show *tvshow = new TV;
+            tvshow->setTitle(title);
+            tvshow->setDescription(description);
+            PlayShow(*tvshow);
         }
     }
     return 0;
