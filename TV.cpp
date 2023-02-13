@@ -10,11 +10,17 @@ void TV::play(int season, int episode) {
 		if (episode <= 5 && episode > 0) {
 			std::cout << TVarray[season - 1][episode - 1];
 		}
+		else {
+			std::cout << "Invalid episode input";
+		}
+	}
+	else {
+		std::cout << "Invalid season input";
 	}
 }
 
 void TV::details() {
-	std::cout << "Title: " + getTitle() + "\nDescription: " + getDescription();
+	std::cout << "Title: " + getTitle() + "\nDescription: " + getDescription() << "\n";
 	std::cout << "\n" << "Number of seasons: 10";
 }
 
