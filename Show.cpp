@@ -2,20 +2,20 @@
 #include <iostream>
 
 
-Show::Show() {
+Show::Show(){
 	title = "UNKNOWN";
 	description = "NO DESCRIPTION";
 }
 
-Show::Show(std::string t, std::string d) {
+Show::Show(std::string t, std::string d){
 	title = t;
 	description = d;
 }
 
 void Show::play() {
-	std::cout << "\n" << "The show is playing";
+	std::cout << "The show is playing" << "\n";
 }
 
 void Show::details() {
-	std::cout << "Title: " + title + "\nDescription: " + description;
+	std::cout << "Title: " + title + "\nDescription: " + description + "\n";
 }
