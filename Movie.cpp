@@ -13,5 +13,5 @@ Movie::Movie() {
 }
 
 void Movie::Play() {
-	std::cout << "\n" << "The movie credits are playing : " + credits;
+	std::cout << "The movie credits are playing: " + credits + "\n";
 }
